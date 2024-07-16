@@ -11,8 +11,19 @@ spec:
     targetRevision: 0.28.0
     helm:
       releaseName: hashicorp-vault
-      valueFiles:
-      - $values/gitops/hashicorp/argocd/values.yaml  
+      values: |
+        server:
+          readinessProbe:
+            enabled: false
+          livenessProbe:
+            enabled: false
+          standalone:
+            enabled: true
+          ha:
+            enabled: false
+        ui:
+          enabled: true
+          externalPort: 8200
   destination:
     server: "https://kubernetes.default.svc"
     namespace: neutron-it
