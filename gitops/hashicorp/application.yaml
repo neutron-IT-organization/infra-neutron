@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hashicorp
+  namespace: openshift-gitops
+spec:
+  project: infra-neutron
+  source:
+    chart: vault
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: 0.1
+    helm:
+      releaseName: hashicorp-0.1
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: neutron-it
