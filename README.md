@@ -2,7 +2,7 @@
 
 This repo contains the material to deploy si infra.
 
-##Prerequisites 
+## Prerequisites 
 
 Argo is already installed using
 
@@ -13,7 +13,6 @@ https://github.com/neutron-IT-organization/formation-openshift-gitops/blob/main/
 
 ```shell
 oc apply -f prereq/ns.yaml
-oc apply -f prereq/argoCd.yaml
 ```
 
 ## OpenShift GitOps
@@ -29,19 +28,13 @@ Create the argoCD headquarter project
 
 ```shell
 oc apply -f gitops/project.yaml
-oc apply -f gitops/auth/argocd/application.yaml
-```
-
-Create the argoCD Application
-
-```shell
-oc apply -f opp/argocd/application.yaml
+oc apply -f gitops/hashicorp/application.yaml
 ```
 
 ## Cleanup
 
 ```shell
-oc delete -f opp/argocd/application.yaml
+oc delete -f gitops/hashicorp/application.yaml
 oc delete -f prereq/ns.yaml
 ```
 
