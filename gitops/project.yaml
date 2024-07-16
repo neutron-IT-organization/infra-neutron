@@ -4,6 +4,8 @@ metadata:
   name: infra-neutron
   namespace: openshift-gitops
 spec:
+  sourceRepos:
+  - '*'
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
@@ -14,5 +16,3 @@ spec:
   namespaceResourceWhitelist:
   - group: '*'
     kind: '*'
-  sourceRepos:
-  - https://github.com/feven-NIT/infra-neutron.git

@@ -8,9 +8,11 @@ spec:
   source:
     chart: vault
     repoURL: https://helm.releases.hashicorp.com
-    targetRevision: 0.1
+    targetRevision: 0.28.0
     helm:
-      releaseName: hashicorp-0.1
+      releaseName: hashicorp-vault
+      valueFiles:
+      - $values/gitops/hashicorp/argocd/values.yaml  
   destination:
     server: "https://kubernetes.default.svc"
     namespace: neutron-it
