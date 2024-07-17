@@ -13,6 +13,7 @@ https://github.com/neutron-IT-organization/formation-openshift-gitops/blob/main/
 
 ```shell
 oc apply -f prereq/ns.yaml
+oc apply -f prereq/sub.yaml
 ```
 
 ## OpenShift GitOps
@@ -29,6 +30,7 @@ Create the argoCD headquarter project
 ```shell
 oc apply -f gitops/project.yaml
 oc apply -f gitops/hashicorp/application.yaml
+oc apply -f gitops/aap/application.yaml
 ```
 
 ## Cleanup
@@ -36,5 +38,6 @@ oc apply -f gitops/hashicorp/application.yaml
 ```shell
 oc delete -f gitops/hashicorp/application.yaml
 oc delete -f prereq/ns.yaml
+oc delete -f prereq/sub.yaml
 ```
 
