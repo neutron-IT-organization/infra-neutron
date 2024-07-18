@@ -8,6 +8,5 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: pvc-8ada74f2-8863-4df8-8db1-aed5d79949ac
   storageClassName: lvms-vg1
   volumeMode: Filesystem
