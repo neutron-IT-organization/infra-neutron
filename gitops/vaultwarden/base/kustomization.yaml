@@ -7,3 +7,4 @@ resources:
 - ./rbac.yaml
 - ./route.yaml
 - ./service.yaml
+- ./consoleLink.yaml
