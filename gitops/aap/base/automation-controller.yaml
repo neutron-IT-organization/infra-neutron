@@ -2,7 +2,6 @@ apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
   name: automation-controller
-  namespace: neutron-it
 spec:
   postgres_keepalives_count: 5
   postgres_keepalives_idle: 5

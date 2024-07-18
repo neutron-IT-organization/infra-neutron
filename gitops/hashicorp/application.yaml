@@ -26,4 +26,10 @@ spec:
           externalPort: 8200
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: neutron-it
+    namespace: hashicorp
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        argocd.argoproj.io/managed-by: openshift-gitops

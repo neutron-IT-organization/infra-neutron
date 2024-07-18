@@ -11,10 +11,10 @@ spec:
     path: gitops/aap/base
   destination:
     server: https://kubernetes.default.svc
-    namespace: neutron-it
+    namespace: aap-lab
   syncPolicy:
     syncOptions:
-    - CreateNamespace=false
+    - CreateNamespace=true
     managedNamespaceMetadata:
       labels:
         argocd.argoproj.io/managed-by: openshift-gitops

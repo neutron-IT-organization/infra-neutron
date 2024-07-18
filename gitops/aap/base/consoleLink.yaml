@@ -6,6 +6,6 @@ spec:
   applicationMenu:
     imageURL: https://upload.wikimedia.org/wikipedia/commons/2/24/Ansible_logo.svg
     section: Ansible Automation Platform 2
-  href: https://automation-controller-neutron-it.apps.neutron-sno-office.intraneutron.fr/
+  href: https://automation-controller-aap-lab.apps.neutron-sno-office.intraneutron.fr/
   location: ApplicationMenu
   text: Ansible Controller/Tower
