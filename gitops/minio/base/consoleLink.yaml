@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: minio-console-link
+spec:
+  applicationMenu:
+    imageURL: https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg
+    section: minio console link
+  href: https://minio-console-minio.apps.neutron-sno-office.intraneutron.fr
+  location: ApplicationMenu
+  text: Minio/S3Bucket
