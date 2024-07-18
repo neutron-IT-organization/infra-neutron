@@ -6,7 +6,7 @@ data:
   YUBICO_SECRET_KEY: Vsdfsew434fsdfsdfsdf=
   INVITATIONS_ALLOWED: 'true'
   DATA_FOLDER: /data
-  DOMAIN: 'https://bitwarden.apps.neutron-sno-office.intraneutron.fr/'
+  DOMAIN: 'https://bitwarden-vaultwarden.apps.neutron-sno-office.intraneutron.fr/'
   SIGNUPS_ALLOWED: 'true'
   WEB_VAULT_ENABLED: 'true'
   WEBSOCKET_ENABLED: 'true'
