@@ -1,0 +1,20 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: bitwarden  
+data:
+  YUBICO_SECRET_KEY: Vsdfsew434fsdfsdfsdf=
+  INVITATIONS_ALLOWED: 'true'
+  DATA_FOLDER: /data
+  DOMAIN: 'https://bitwarden.apps.neutron-sno-office.intraneutron.fr/'
+  SIGNUPS_ALLOWED: 'true'
+  WEB_VAULT_ENABLED: 'true'
+  WEBSOCKET_ENABLED: 'true'
+  SMTP_SECURITY: 'off'
+  SHOW_PASSWORD_HINT: 'false'
+  SMTP_PORT: '25'
+  ROCKET_WORKERS: '10'
+  ROCKET_PORT: '8080'
+  SMTP_HOST: aspmx.l.google.com
+  SMTP_FROM: vaultwarden@neutron-it.fr
+  YUBICO_CLIENT_ID: '123123'

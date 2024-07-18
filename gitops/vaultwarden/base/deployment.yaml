@@ -1,0 +1,45 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: bitwarden-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bitwarden
+  template:
+    metadata:
+      labels:
+        app: bitwarden
+    spec:
+      restartPolicy: Always
+      serviceAccountName: bitwarden
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      securityContext:
+        runAsUser: 33
+        fsGroup: 33
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: bitwarden
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: websocket
+              containerPort: 3012
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: data-volume
+              mountPath: /data
+          terminationMessagePolicy: File
+          envFrom:
+            - configMapRef:
+                name: bitwarden
+          image: 'vaultwarden/server:latest'
+      serviceAccount: bitwarden
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: data-pvc
