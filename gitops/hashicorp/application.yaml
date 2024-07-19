@@ -5,25 +5,28 @@ metadata:
   namespace: openshift-gitops
 spec:
   project: infra-neutron
-  source:
-    chart: vault
-    repoURL: https://helm.releases.hashicorp.com
-    targetRevision: 0.28.0
-    helm:
-      releaseName: hashicorp-vault
-      values: |
-        server:
-          readinessProbe:
-            enabled: false
-          livenessProbe:
-            enabled: false
-          standalone:
+  sources:
+    - chart: vault
+      repoURL: https://helm.releases.hashicorp.com
+      targetRevision: 0.28.0
+      helm:
+        releaseName: hashicorp-vault
+        values: |
+          server:
+            readinessProbe:
+              enabled: false
+            livenessProbe:
+              enabled: false
+            standalone:
+              enabled: true
+            ha:
+              enabled: false
+          ui:
             enabled: true
-          ha:
-            enabled: false
-        ui:
-          enabled: true
-          externalPort: 8200
+            externalPort: 8200
+    - repoURL: https://github.com/neutron-IT-organization/infra-neutron.git
+      targetRevision: main
+      path: gitops/hashicorp/base
   destination:
     server: "https://kubernetes.default.svc"
     namespace: hashicorp
