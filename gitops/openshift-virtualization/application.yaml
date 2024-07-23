@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-virtualization
+  namespace: openshift-gitops
+spec:
+  project: infra-neutron
+  source:
+    repoURL: https://github.com/neutron-IT-organization/infra-neutron.git
+    targetRevision: main
+    path: gitops/openshift-virtualization/base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-cnv
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        argocd.argoproj.io/managed-by: openshift-gitops
