@@ -11,7 +11,7 @@ spec:
     path: gitops/openshift-virtualization/base
   destination:
     server: https://kubernetes.default.svc
-    namespace: openshift-cnv
+    namespace: openshift-virtualization
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
