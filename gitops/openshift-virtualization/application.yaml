@@ -11,7 +11,7 @@ spec:
     path: gitops/openshift-virtualization/base
   destination:
     server: https://kubernetes.default.svc
-    namespace: openshift-virtualization
+    namespace: openshift-cnv
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
@@ -20,6 +20,6 @@ spec:
         argocd.argoproj.io/managed-by: openshift-gitops
   ignoreDifferences:
   - kind: HyperConverged
-    namespace: openshift-virtualization
+    namespace: openshift-cnv
     jsonPointers:
     - /spec/version

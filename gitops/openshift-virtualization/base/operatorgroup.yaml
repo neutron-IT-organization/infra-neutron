@@ -4,4 +4,4 @@ metadata:
   name: kubevirt-hyperconverged-group
 spec:
   targetNamespaces:
-  - openshift-virtualization
+  - openshift-cnv
