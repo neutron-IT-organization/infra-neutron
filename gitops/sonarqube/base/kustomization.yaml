@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ./autoscaler.yaml
+- ./deployment.yaml
+- ./pvc.yaml
+- ./rbac.yaml
+- ./route.yaml
+- ./service.yaml
+- ./consoleLink.yaml
+secretGenerator:
+  - name: db-user
+    literals:
+      - username=sonar
+    generators:
+      - password
+    options:
+      type: Opaque
