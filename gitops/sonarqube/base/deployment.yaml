@@ -40,13 +40,6 @@ spec:
                 secretKeyRef:
                   name: db-user
                   key: password
-          resources:
-            requests:
-              memory: "2Gi"
-              cpu: "500m"
-            limits:
-              memory: "4Gi"
-              cpu: "1"
       volumes:
         - name: sonarqube-data
           persistentVolumeClaim:
@@ -78,7 +71,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: "docker.io/postgres:12"
+          image: "registry.redhat.io/rhel8/postgresql-12"
           ports:
             - name: postgres
               containerPort: 5432
@@ -86,14 +79,14 @@ spec:
             - name: postgresql-data
               mountPath: /var/lib/postgresql/data
           env:
-            - name: POSTGRES_DB
+            - name: POSTGRESQL_DATABASE
               value: "sonarqube"
-            - name: POSTGRES_USER
+            - name: POSTGRESQL_USER
               valueFrom:
                 secretKeyRef:
                   name: db-user
                   key: username
-            - name: POSTGRES_PASSWORD
+            - name: POSTGRESQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: db-user
