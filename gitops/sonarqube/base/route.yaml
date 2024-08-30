@@ -11,4 +11,6 @@ spec:
     kind: Service
     name: sonarqube
     weight: 100
+  port:
+    targetPort: 9000
   wildcardPolicy: None
