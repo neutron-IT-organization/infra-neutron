@@ -40,6 +40,7 @@ spec:
     - metadata:
         name: postgres-data
       spec:
+        storageClassName: lvms-vg1
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
