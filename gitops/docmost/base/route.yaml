@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: docmost-route
+  namespace: docmost
+spec:
+  host: neutron-docmost.apps.neutron-sno-gpu.neutron-it.fr
+  path: /
+  to:
+    kind: Service
+    name: docmost
+    weight: 100
+  port:
+    targetPort: 3000
+  tls:
+    termination: edge

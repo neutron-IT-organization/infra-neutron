@@ -1,0 +1,52 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: docmost
+  namespace: docmost
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docmost
+  template:
+    metadata:
+      labels:
+        app: docmost
+    spec:
+      volumes:
+        - name: docmost-data
+          persistentVolumeClaim:
+            claimName: docmost-pvc
+      containers:
+        - name: docmost
+          env:
+            - name: APP_URL
+              value: 'http://neutron-docmost.apps.neutron-sno-gpu.neutron-it.fr'
+            - name: APP_SECRET
+              value: d3A1p9xF6TqL2R7Zv4B8WcNhYjK5VsQm
+            - name: DATABASE_URL
+              value: 'postgresql://docmost:G7gH2Xf5TqLp9YcBmNk4VzW8Rv3JX6Q@db:5432/docmost?schema=public'
+            - name: REDIS_URL
+              value: 'redis://redis:6379'
+            - name: MAIL_DRIVER
+              value: smtp
+            - name: SMTP_HOST
+              value: aspmx.l.google.com
+            - name: SMTP_PORT
+              value: '25'
+            - name: SMTP_USERNAME
+              value: contact@neutron-it.fr
+            - name: MAIL_FROM_ADDRESS
+              value: florian.even@neutron-it.fr
+            - name: MAIL_FROM_NAME
+              value: florian.even
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: docmost-data
+              mountPath: /app/data/storage
+          image: 'docmost/docmost:latest'
+      securityContext:
+        runAsUser: 0

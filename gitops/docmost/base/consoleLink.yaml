@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: docmost-console-link
+spec:
+  applicationMenu:
+    imageURL: https://upload.wikimedia.org/wikipedia/commons/f/f9/Wikibooks_library_icon_humanities.svg
+    section: documentation console link
+  href: https://neutron-docmost.apps.neutron-sno-gpu.neutron-it.fr
+  location: ApplicationMenu
+  text: Docmost

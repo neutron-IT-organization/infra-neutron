@@ -1,0 +1,43 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: docmost
+  namespace: docmost
+spec:
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: docmost
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: db
+  namespace: docmost
+spec:
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    app: db
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis
+  namespace: docmost
+spec:
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+  selector:
+    app: redis
+
+
+
+
