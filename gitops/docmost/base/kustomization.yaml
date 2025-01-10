@@ -4,7 +4,6 @@ resources:
 - ./consoleLink.yaml
 - ./docmost.yaml
 - ./pvc.yaml
-- ./rbac.yaml
 - ./route.yaml
 - ./service.yaml
 - ./redis.yaml
