@@ -3,3 +3,14 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: neutron-it
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: docmost
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gitea
+

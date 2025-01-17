@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: gitea-console-link
+spec:
+  applicationMenu:
+    imageURL: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Gitea_Logo.svg'
+    section: gitea console link
+  href: 'https://route-gitea-gitea.apps.neutron-sno-gpu.neutron-it.fr'
+  location: ApplicationMenu
+  text: Gitea
+

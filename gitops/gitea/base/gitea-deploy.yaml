@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitea
+  namespace: gitea
+  labels:
+    app: gitea
+    app.kubernetes.io/component: gitea
+    app.kubernetes.io/instance: gitea
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: gitea
+    app.kubernetes.io/part-of: gitea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitea
+  template:
+    metadata:
+      labels:
+        app: gitea
+    spec:
+      volumes:
+        - name: gitea-repositories
+          persistentVolumeClaim:
+            claimName: gitea-repositories
+        - name: gitea-config
+          configMap:
+            name: gitea-config
+            items:
+              - key: app.ini
+                path: app.ini
+      containers:
+        - name: gitea
+          image: 'quay.io/gpte-devops-automation/gitea@sha256:586cff2c3bd1da96579cbea67494ddcf54e81853c02cb600840d394edc89735b'
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: gitea-repositories
+              mountPath: /gitea-repositories
+            - name: gitea-config
+              mountPath: /home/gitea/conf
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 20
+            timeoutSeconds: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 20
+            timeoutSeconds: 1
+            failureThreshold: 3
+      restartPolicy: Always
+

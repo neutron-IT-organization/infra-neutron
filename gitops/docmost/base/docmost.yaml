@@ -21,7 +21,7 @@ spec:
         - name: docmost
           env:
             - name: APP_URL
-              value: 'http://neutron-docmost.apps.neutron-sno-gpu.neutron-it.fr'
+              value: 'https://neutron-docmost.apps.neutron-sno-gpu.neutron-it.fr'
             - name: APP_SECRET
               value: d3A1p9xF6TqL2R7Zv4B8WcNhYjK5VsQm
             - name: DATABASE_URL
