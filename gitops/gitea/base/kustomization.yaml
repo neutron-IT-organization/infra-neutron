@@ -5,7 +5,6 @@ resources:
 - ./db-deploy.yaml
 - ./gitea-cm.yaml
 - ./gitea-deploy.yaml
-- ./kustomization.yaml
 - ./pvc.yaml
 - ./route.yaml
 - ./secret.yaml
