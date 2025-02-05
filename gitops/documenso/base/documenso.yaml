@@ -21,25 +21,7 @@ spec:
         - resources:
             requests:
               memory: 256Mi
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-              scheme: HTTP
-            timeoutSeconds: 1
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
           name: documenso
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-              scheme: HTTP
-            timeoutSeconds: 1
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
           ports:
             - name: http
               containerPort: 3000
