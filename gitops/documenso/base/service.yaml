@@ -1,28 +1,26 @@
-kind: Service
-apiVersion: v1
-metadata:
-  name: gitea
-  namespace: gitea
-spec:
-  ports:
-    - name: 3000-tcp
-      protocol: TCP
-      port: 3000
-      targetPort: 3000
-  selector:
-    app: gitea
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: gitea-db
-  namespace: gitea
+  name: documenso
+  namespace: documenso
 spec:
   ports:
-    - name: postgresql
-      protocol: TCP
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: documenso
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: db
+  namespace: documenso
+spec:
+  ports:
+    - protocol: TCP
       port: 5432
       targetPort: 5432
   selector:
-    name: gitea-db
-
+    app: db

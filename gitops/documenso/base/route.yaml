@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: documenso-route
+  namespace: documenso
+spec:
+  host: neutron-documenso.apps.neutron-sno-gpu.neutron-it.fr
+  path: /
+  to:
+    kind: Service
+    name: documenso
+    weight: 100
+  port:
+    targetPort: 3000
+  tls:
+    termination: edge

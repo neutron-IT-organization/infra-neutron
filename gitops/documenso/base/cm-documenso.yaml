@@ -1,0 +1,24 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: cm-documenso-app
+  namespace: documenso
+data:
+  NEXT_PRIVATE_ENCRYPTION_SECONDARY_KEY: "dN2p5Jv1KZ8t+Y3wQzVYHh9o4MLRmF6ZzXhscT3G7WY="
+  NEXT_PRIVATE_SMTP_FROM_ADDRESS: 'contact@neutron-it.fr'
+  NEXT_PRIVATE_SMTP_PORT: '25'
+  NEXT_PRIVATE_GOOGLE_CLIENT_SECRET: 'SECRET_TO_UPDATE'#https://docs.documenso.com/developers/self-hosting/setting-up-oauth-providers
+  NEXT_PUBLIC_WEBAPP_URL: 'https://neutron-documenso.apps.neutron-sno-gpu.neutron-it.fr'
+  NEXT_PRIVATE_SMTP_HOST: 'aspmx.l.google.com'
+  NEXT_PRIVATE_ENCRYPTION_KEY: "l7G1hXwXKJvZjUn0xWBC8l1L0QZPtLP2xVvIhME6Uys="
+  NEXTAUTH_URL: 'https://neutron-documenso.apps.neutron-sno-gpu.neutron-it.fr'
+  NEXT_PRIVATE_SMTP_USER: 'florian.even'
+  NEXT_PUBLIC_MARKETING_URL: 'https://neutron-documenso.apps.neutron-sno-gpu.neutron-it.fr'
+  NEXT_PRIVATE_GOOGLE_CLIENT_ID: 'CLIENT_ID_TO_UPDATE'#https://docs.documenso.com/developers/self-hosting/setting-up-oauth-providers
+  NEXT_PRIVATE_SMTP_PASS: 'changeme'
+  NEXT_PRIVATE_DATABASE_URL: 'postgresql://documenso:G7gH2Xf5TqLp9YcBmNk4VzW8Rv3JX6Q@db:5432/documenso?schema=public'
+  NEXTAUTH_SECRET: 'supersecretkey'
+  NEXT_PRIVATE_SMTP_SECURE: 'off'
+  NEXT_PRIVATE_DIRECT_DATABASE_URL: 'postgresql://documenso:G7gH2Xf5TqLp9YcBmNk4VzW8Rv3JX6Q@db:5432/documenso?schema=public'
+  NEXT_PRIVATE_SMTP_FROM_NAME: 'florian.even'
+
