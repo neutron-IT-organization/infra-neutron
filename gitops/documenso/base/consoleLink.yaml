@@ -4,7 +4,7 @@ metadata:
   name: documenso-console-link
 spec:
   applicationMenu:
-    imageURL: https://upload.wikimedia.org/wikipedia/commons/f/f9/Wikibooks_library_icon_humanities.svg
+    imageURL: https://upload.wikimedia.org/wikipedia/commons/e/ec/Etikimza_logo_icon.png
     section: documenso console link
   href: https://neutron-documenso.apps.neutron-sno-gpu.neutron-it.fr
   location: ApplicationMenu
