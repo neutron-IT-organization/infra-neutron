@@ -26,9 +26,9 @@ data:
     ROOT = /gitea-repositories
 
     [server]
-    ROOT_URL         = https://gitea.apps.mycluster.example.com/
-    SSH_DOMAIN       = gitea.apps.mycluster.example.com
-    DOMAIN           = gitea.apps.mycluster.example.com
+    ROOT_URL         = https://route-gitea-gitea.apps.neutron-sno-gpu.neutron-it.fr/
+    SSH_DOMAIN       = route-gitea-gitea.apps.neutron-sno-gpu.neutron-it.fr
+    DOMAIN           = route-gitea-gitea.apps.neutron-sno-gpu.neutron-it.fr
     HTTP_PORT        = 3000
     SSH_PORT         = 2022
     DISABLE_SSH      = true
