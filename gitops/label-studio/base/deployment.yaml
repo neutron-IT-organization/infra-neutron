@@ -24,6 +24,8 @@ spec:
             - name: label-studio-data
               mountPath: /label-studio/data
           env:
+            - name: CSRF_TRUSTED_ORIGINS
+              value: "https://label-studio-label-studio.apps.neutron-sno-gpu.neutron-it.fr"
             - name: DJANGO_DB
               value: default
             - name: POSTGRE_NAME
