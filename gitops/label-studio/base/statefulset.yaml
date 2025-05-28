@@ -15,23 +15,25 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: "registry.redhat.io/rhel9/postgresql-13"
+          image: "postgres:alpine"
           ports:
             - containerPort: 5432
               name: postgres
           env:
-            - name: POSTGRESQL_DATABASE
+            - name: POSTGRES_DB
               value: db
-            - name: POSTGRESQL_USER
+            - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
                   name: db-user
                   key: username
-            - name: POSTGRESQL_PASSWORD
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: db-user
                   key: password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           volumeMounts:
           - name: postgres-data
             mountPath: /var/lib/postgresql/data
