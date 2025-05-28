@@ -21,7 +21,7 @@ spec:
               name: postgres
           env:
             - name: POSTGRESQL_DATABASE
-              value: "label-studio"
+              value: db
             - name: POSTGRESQL_USER
               valueFrom:
                 secretKeyRef:

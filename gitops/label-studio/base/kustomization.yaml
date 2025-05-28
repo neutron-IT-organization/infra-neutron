@@ -4,7 +4,6 @@ resources:
 - ./consoleLink.yaml
 - ./deployment.yaml
 - ./pvc.yaml
-- ./rbac.yaml
 - ./route.yaml
 - ./service.yaml
 - ./statefulset.yaml
