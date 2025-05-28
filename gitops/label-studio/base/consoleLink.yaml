@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: label-studio-console-link
+spec:
+  applicationMenu:
+    imageURL: https://cdn.prod.website-files.com/65264f6bf54e751c3a776db1/66d867d15dd7dff0bd9fbe50_label-studio.png
+    section: Code Quality
+  href: https://label-studio-label-studio.apps.neutron-sno-office.intraneutron.fr
+  location: ApplicationMenu
+  text: Label Studio

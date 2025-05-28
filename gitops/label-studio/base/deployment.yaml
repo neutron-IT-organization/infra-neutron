@@ -1,0 +1,48 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: label-studio
+  labels:
+    app: label-studio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: label-studio
+  template:
+    metadata:
+      labels:
+        app: label-studio
+    spec:
+      containers:
+        - name: label-studio
+          image: "docker.io/heartexlabs/label-studio"
+          ports:
+            - name: label-studio
+              containerPort: 9000
+          volumeMounts:
+            - name: label-studio-data
+              mountPath: /label-studio/data
+          env:
+            - name: DJANGO_DB
+              value: default
+            - name: POSTGRE_NAME
+              value: postgres
+            - name: POSTGRE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-user
+                  key: username
+            - name: POSTGRE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-user
+                  key: password
+            - name: POSTGRE_PORT
+              value: "5432"
+            - name: POSTGRE_HOST
+              value: postgres
+      volumes:
+        - name: label-studio-data
+          persistentVolumeClaim:
+            claimName: label-studio-data-pvc

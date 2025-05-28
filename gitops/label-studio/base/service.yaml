@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: label-studio
+spec:
+  ports:
+    - protocol: TCP
+      name: label-studio
+      port: 8080
+  selector:
+    app: label-studio
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  ports:
+    - protocol: TCP
+      name: postgres
+      port: 5432
+  selector:
+    app: postgres
